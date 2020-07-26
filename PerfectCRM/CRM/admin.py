@@ -14,7 +14,7 @@ class CustomerAdmin(admin.ModelAdmin):
     list_filter = ('source', 'consultant', 'date')
     search_fields = ('qq', 'name')
     raw_id_fields = ('consult_course')
-    filter_horizontal = ("tags")
+    filter_horizontal = ('tags')
     list_editable = ('status')
 
 admin.site.register(models.Branch)

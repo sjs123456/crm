@@ -7,9 +7,8 @@
 '''
 
 from django.urls import path
-from CRM import views
+from student import views
 
 urlpatterns = [
-    path('', views.index, name = "sales_index"),
-    path('customers/', views.customer_list, name = "customer_list"),
+    path('/', views.student_list, name = 'stu_index')
 ]

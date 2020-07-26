@@ -83,6 +83,7 @@ class UserProfile(models.Model):
 class Role(models.Model):
     """角色表"""
     name = models.CharField(max_length = 32, unique = True)
+    menu = models.ManyToManyField('Menu')
     
     def __str__(self):
         return self.name

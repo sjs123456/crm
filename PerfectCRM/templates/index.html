@@ -2,13 +2,12 @@
  * @Author: Jinsong Shi
  * @Date: 2020-07-26 05:32:35
  * @LastEditors: Jinsong Shi
- * @LastEditTime: 2020-07-26 14:35:27
+ * @LastEditTime: 2020-07-26 19:35:15
  * @Description: file content
 --> 
 {% extends 'base.html' %}
-{% block 'body' %}
+{% block body %}
 <body>
-
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -32,8 +31,11 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
-            <li class="active"><a href="https://v3.bootcss.com/examples/dashboard/#">Overview <span class="sr-only">(current)</span></a></li>
-            <li><a href="https://v3.bootcss.com/examples/dashboard/#">Reports</a></li>
+            {% for role in request.user.userprofile.roles.all %}
+              {%  for men in role.menu.all %}
+                <li class=""><a href="{% url men.url_name %}">{{ men.name }}</a></li>
+              {% endfor %}
+            {% endfor %}
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
